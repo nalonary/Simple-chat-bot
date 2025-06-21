@@ -8,7 +8,7 @@ from datetime import datetime
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-# ================ تحميل أو إنشاء الردود ================
+# ================ replies ================
 data_file = "bot_memory.json"
 if not os.path.exists(data_file):
     with open(data_file, "w", encoding="utf-8") as f:
@@ -27,15 +27,15 @@ if not os.path.exists(data_file):
     with open(data_file, "w", encoding="utf-8") as f:
         json.dump({}, f)
 else:
-    # تأكد من وجود صلاحية للكتابة
+    # this to make sure everything here work
     try:
         with open(data_file, "r+", encoding="utf-8") as f:
             pass
     except PermissionError:
-        messagebox.showerror("Permission Error", "لا يمكن الكتابة على bot_memory.json! شغّل البرنامج كمسؤول أو غير مكان التشغيل.")
+        messagebox.showerror("Permission Error", u can't run this file because there is a problem.")
         exit()
 
-# ================ وظائف الرد والتعلم ================
+# ================ learn and answer ================
 def get_response(user_input):
     user_input = user_input.lower()
     result = process.extractOne(user_input, replies.keys(), score_cutoff=90)
@@ -54,13 +54,13 @@ def log_message(sender, message):
         timestamp = datetime.now().strftime("[%Y-%m-%d %H:%M:%S]")
         log.write(f"{timestamp} {sender}: {message}\n")
 
-# ================ الواجهة الرسومية ================
+# ================ the GUI ================
 root = tk.Tk()
 root.title("Nalonary's simple chat bot")
 root.geometry("1500x800")
 root.iconbitmap("pic.ico")
 
-# ================ الثيمات والخلفيات ================
+# ================ themes and BGs ================
 bg_images = {
     "Classic": "bg_classic.jpg",
     "Dark Mode": "bg_dark.jpg",
@@ -73,12 +73,12 @@ bg_image = ImageTk.PhotoImage(Image.open(bg_images[current_theme]).resize((1500,
 bg_label = tk.Label(root, image=bg_image)
 bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-# ================ صورة البوت (اختياري) ================
+# ================ avatar for bot ================
 avatar_img = ImageTk.PhotoImage(Image.open("bot_avatar.png").resize((100, 100)))
 avatar_label = tk.Label(root, image=avatar_img, bg="#122654")
 avatar_label.place(x=20, y=20)
 
-# ================ عناصر الدردشة ================
+# ================ chat items ================
 label = tk.Label(root, text="how can I help u today?", font=("Georgia", 30), fg="white", bg="#000000")
 label.place(x=550, y=50)
 
@@ -89,7 +89,7 @@ chat_display.insert(tk.END, "Bot: hi how can I help u today?\n")
 entry = tk.Entry(root, font=("Arial", 14), width=110, bg="#0d0d0d", fg="white")
 entry.place(x=150, y=700)
 
-# ================ زر الإرسال ================
+# ================ send button ================
 def send():
     user_input = entry.get().strip()
     if not user_input:
@@ -117,15 +117,15 @@ def send():
 send_button = tk.Button(root, text="Send", font=("Arial", 14), command=send)
 send_button.place(x=1250, y=700)
 
-# ================ الفوتر ================
+# ================ footer for nalonary (the developer) ================
 footer = tk.Label(root, text="Developed by Nalonary", fg="#FFFFFF", bg="#1e1e1e", font=("Arial", 10))
 footer.pack(side="bottom", pady=10)
 
-# ================ اختيار الثيم ================
+# ================themes choose ================
 def switch_theme():
     choice = simpledialog.askstring(
         "Choose Theme",
-        "اختار الثيم:\n1. Classic\n2. Dark Mode\n3. Anime Pink\n4. Cyber Glitch\n5. Default"
+        "choose theme:\n1. Classic\n2. Dark Mode\n3. Anime Pink\n4. Cyber Glitch\n5. Default"
     )
     if not choice:
         return
@@ -141,7 +141,7 @@ def switch_theme():
     if theme and theme in bg_images:
         update_theme(theme)
     else:
-        tk.messagebox.showerror("خطأ", "الاختيار غير صحيح!")
+        tk.messagebox.showerror("something went wrong","error!")
 
 def update_theme(theme_name):
     global bg_image
@@ -171,9 +171,9 @@ def update_theme(theme_name):
         entry.config(bg="#1a0033", fg="#00ffff")
         footer.config(bg="#0f001a", fg="#ff007f")
 
-# زر تغيير الثيم
+# theme change button
 theme_button = tk.Button(root, text="Switch Theme", font=("Arial", 12), command=switch_theme, bg="#444444", fg="white")
 theme_button.place(x=1350, y=50)
 
-# ================ تشغيل التطبيق ================
+# ================ app turn on ================
 root.mainloop()
