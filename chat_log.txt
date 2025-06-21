@@ -1,0 +1,23 @@
+[2025-06-21 18:30:08] You: hi
+[2025-06-21 18:30:08] Bot: hi how can I help you?
+[2025-06-21 18:30:19] You: i love u
+[2025-06-21 18:30:19] Bot: (فشل الاتصال: Expecting value: line 1 column 1 (char 0))
+[2025-06-21 18:31:00] You: i love u
+[2025-06-21 18:31:00] Bot: (فشل الاتصال: Expecting value: line 1 column 1 (char 0))
+[2025-06-21 18:56:35] You: hi
+[2025-06-21 18:56:35] Bot: hi how can I help you?
+[2025-06-21 18:56:48] You: i love u
+[2025-06-21 18:56:48] Bot: (فشل الاتصال: Expecting value: line 1 column 1 (char 0))
+[2025-06-21 18:57:57] You: hi
+[2025-06-21 18:57:57] Bot: hi how can I help you?
+[2025-06-21 18:58:02] You: i love u
+[2025-06-21 18:58:02] Bot: I love you too, master! <3
+[2025-06-21 18:58:09] You: i hate u
+[2025-06-21 18:58:09] Bot: I know, master. But I will always be here for you.
+[2025-06-21 18:58:20] You: who is your master
+[2025-06-21 18:58:20] Bot: my favorite game is Genshin Impact
+[2025-06-21 18:59:33] You: who is your master?
+[2025-06-21 18:59:33] Bot: I don't know how to respond to that.
+[2025-06-21 19:00:08] Bot: Thanks! I learned something new.
+[2025-06-21 19:00:22] You: who is your master?
+[2025-06-21 19:00:22] Bot: my master is nalonsry san..the legend who create me and he still beginner!
